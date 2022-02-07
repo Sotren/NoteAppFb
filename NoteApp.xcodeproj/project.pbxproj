@@ -17,7 +17,8 @@
 		EBE7477427AA7C79003B637B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EBE7477327AA7C79003B637B /* FirebaseFirestore */; };
 		EBE7477E27AA8C1F003B637B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7477D27AA8C1F003B637B /* Note.swift */; };
 		EBE7478C27AA95D8003B637B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7478B27AA95D8003B637B /* Constants.swift */; };
-		EBE7479127AA98B0003B637B /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7479027AA98B0003B637B /* NotesViewController.swift */; };
+		EBE7479527AAEB38003B637B /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7479427AAEB38003B637B /* EditNoteViewController.swift */; };
+		EBE7479827AAEF6E003B637B /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7479727AAEF6E003B637B /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		EBE7476D27AA79A0003B637B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBE7477D27AA8C1F003B637B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		EBE7478B27AA95D8003B637B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EBE7479027AA98B0003B637B /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		EBE7479427AAEB38003B637B /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		EBE7479727AAEF6E003B637B /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 		EBE7478827AA8CF4003B637B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EBE7479027AA98B0003B637B /* NotesViewController.swift */,
+				EBE7479427AAEB38003B637B /* EditNoteViewController.swift */,
+				EBE7479727AAEF6E003B637B /* NotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,9 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE7478C27AA95D8003B637B /* Constants.swift in Sources */,
-				EBE7479127AA98B0003B637B /* NotesViewController.swift in Sources */,
 				EBE7475927AA6DDF003B637B /* AppDelegate.swift in Sources */,
+				EBE7479827AAEF6E003B637B /* NotesViewController.swift in Sources */,
 				EBE7475B27AA6DDF003B637B /* SceneDelegate.swift in Sources */,
+				EBE7479527AAEB38003B637B /* EditNoteViewController.swift in Sources */,
 				EBE7477E27AA8C1F003B637B /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,9 @@ import Foundation
 struct K {
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "NoteCell"
+    static let editNoteSegue = "editNoteSegue"
   
-}
+
  
     struct FStore {
         static let collectionName = "notes"
@@ -19,3 +20,4 @@ struct K {
         static let bodyField = "body"
         static let dateField = "date"
     }
+}
