@@ -1,20 +1,14 @@
 //
-//  EditNoteViewController.swift
-//  NoteApp
-//
-//  Created by Станислав Москальцов  on 02.02.2022.
-//
-
-import UIKit
-import Firebase
 class EditNoteViewController: UIViewController {
     
-    @IBOutlet weak var textBody: UITextView!
-   
-    let db = Firestore.firestore()
+    @IBOutlet var textBody: UITextView!
+    
+    private let db = Firestore.firestore()
+   public var textView: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textBody.text = textView
         
         // Do any additional setup after loading the view.
     }
@@ -39,10 +33,6 @@ class EditNoteViewController: UIViewController {
                 } else {
                     print("Successfully saved data.")
     }
-    
-                func viewWillDesaper (){
-                    
-                }
 }
 }
     }
@@ -59,3 +49,11 @@ class EditNoteViewController: UIViewController {
       
     
 }
+//  EditNoteViewController.swift
+//  NoteApp
+//
+//  Created by Станислав Москальцов  on 02.02.2022.
+//
+
+import UIKit
+import Firebase

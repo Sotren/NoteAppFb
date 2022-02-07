@@ -9,12 +9,13 @@ import UIKit
 import Firebase
 
 class NotesViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         loadMessages()
+        
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,46 +23,48 @@ class NotesViewController: UIViewController {
     public var notes: [Note] = []
     public let db = Firestore.firestore()
     
-   
+    
+    
+    
     //MARK: - FairBaseLogic
     func loadMessages() {
         
         db.collection(K.FStore.collectionName)
             .order(by: K.FStore.dateField)
             .addSnapshotListener { (querySnapshot, error) in
-            
-            self.notes = []
-            
-            if let e = error {
-                print("There was an issue retrieving data from Firestore. \(e)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
-                    for doc in snapshotDocuments {
-                        let data = doc.data()
-                        if let noteTitle = data[K.FStore.titleField] as? String, let noteBody = data[K.FStore.bodyField] as? String {
-                            let newNote = Note(title: noteTitle, body: noteBody)
-                            self.notes.append(newNote)
-                            
-                            DispatchQueue.main.async {
-                                   self.tableView.reloadData()
-                                let indexPath = IndexPath(row: self.notes.count - 1, section: 0)
-                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                
+                self.notes = []
+                
+                if let e = error {
+                    print("There was an issue retrieving data from Firestore. \(e)")
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        for doc in snapshotDocuments {
+                            let data = doc.data()
+                            if let noteTitle = data[K.FStore.titleField] as? String, let noteBody = data[K.FStore.bodyField] as? String {
+                                let newNote = Note(title: noteTitle, body: noteBody)
+                                self.notes.append(newNote)
+                                
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                    let indexPath = IndexPath(row: self.notes.count - 1, section: 0)
+                                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                                }
                             }
                         }
                     }
                 }
             }
-        }
     }
     
     
-    }
+}
 
 
 
 //MARK: - UITableViewDataSource
 extension NotesViewController: UITableViewDataSource{
-     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
     }
@@ -73,19 +76,33 @@ extension NotesViewController: UITableViewDataSource{
         return cell
     }
     
-
+    
 }
 
-    //MARK: - UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension NotesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.editNoteSegue, sender: nil)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.editNoteSegue{
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! EditNoteViewController
+                controller.textView = notes[indexPath.row].body
+                controller.navigationItem.title? = notes[indexPath.row].title
+                
+            }
+        }
     }
     
-    
 }
-    
-    
-    
-    
- 
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@
                     <navigationItem key="navigationItem" title="Note" id="1ln-FX-5NH">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Tt4-yq-S4l">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="mST-H8-Gvf">
-                                <rect key="frame" x="302" y="7" width="25" height="24"/>
+                                <rect key="frame" x="364" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <connections>
@@ -40,7 +40,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="textBody" destination="Xe1-DP-BiI" id="XS3-N8-Jhr"/>
+                        <outlet property="textBody" destination="Xe1-DP-BiI" id="hID-3g-Mc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWF-iC-IEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
